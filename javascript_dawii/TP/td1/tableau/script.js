@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     afficherTablesMultiplication();
 });
 
@@ -23,4 +23,3 @@ function table_mult(N) {
 
     return tableHtml;
 }
-    

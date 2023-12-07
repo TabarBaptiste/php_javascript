@@ -4,17 +4,65 @@
 <head>
     <title>Propriétés du navigateur</title>
     <script src="script.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222831;
+            color: #EEEEEE;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            margin: 5px;
+            font-size: 16px;
+            background-color: #00ADB5;
+            color: #EEEEEE;
+            cursor: pointer;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        #resultat {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #393E46;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Propriétés du navigateur</h1>
-    <button onclick="afficherURL()">URL du navigateur</button>
-    <button onclick="afficherNomNavigateur()">Nom du navigateur</button>
-    <button onclick="afficherVersionNavigateur()">Version du navigateur</button>
-    <button onclick="afficherNomCodage()">Nom de codage du navigateur</button>
-    <button onclick="afficherUserAgent()">User Agent du navigateur</button>
-    <button onclick="afficherPlatform()">Plateforme du navigateur</button>
-    <div id="resultat"></div>
+
+    <h2>Accès aux propriétés du navigateur</h2>
+
+    <button onclick="afficherPropriete('URL du navigateur', document.location.href)">URL du navigateur</button>
+    <button onclick="afficherPropriete('Nom du navigateur', navigator.appName)">Nom du navigateur</button>
+    <button onclick="afficherPropriete('Version du navigateur', navigator.appVersion)">Version du navigateur</button>
+    <button onclick="afficherPropriete('Nom de codage', navigator.appCodeName)">Nom de codage</button>
+    <button onclick="afficherPropriete('User Agent', navigator.userAgent)">User Agent</button>
+    <button onclick="afficherPropriete('Plateforme', navigator.platform)">Plateforme</button>
+
+    <p id="resultat"></p>
+
 </body>
 
 </html>

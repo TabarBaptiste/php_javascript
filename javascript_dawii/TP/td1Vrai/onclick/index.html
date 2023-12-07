@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mise en page CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #EEEEEE;
+            color: #222831;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px #000000;
+            background-color: #00ADB5;
+        }
+
+        input[type="text"],
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #222831;
+            color: #EEEEEE;
+            cursor: pointer;
+        }
+
+        textarea {
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            resize: none;
+            font-size: 16px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+            /* Largeur de la scrollbar */
+            background-color: rgb(255, 255, 255);
+            /* Couleur de fond de la scrollbar */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgb(128, 128, 128);
+            /* Couleur de la scrollbar */
+            border-radius: 5px;
+            /* Bord arrondi de la scrollbar */
+        }
+
+        ::-webkit-scrollbar-thumb:active {
+            background-color: rgb(168, 168, 168);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <label for="nombre">Entrez un nombre :</label>
+        <input type="text" id="nombre" value="7">
+        <button onclick="afficherTable()">Afficher la table de multiplication</button>
+        <br><br>
+        <textarea id="resultat" rows="10" cols="30" readonly></textarea>
+    </div>
+
+    <script>
+        function afficherTable() {
+            var inputNombre = document.getElementById("nombre");
+            var nombre = parseInt(inputNombre.value);
+
+            var resultatZone = document.getElementById("resultat");
+            resultatZone.value = "";
+
+            if (!isNaN(nombre)) {
+                for (var i = 1; i <= 10; i++) {
+                    var ligne = nombre + " x " + i + " = " + (nombre * i) + "\n";
+                    resultatZone.value += ligne;
+                }
+            } else {
+                resultatZone.value = "Veuillez entrer un nombre valide !";
+            }
+        }
+    </script>
+</body>
+
+</html>
