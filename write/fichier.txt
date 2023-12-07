@@ -1,0 +1,10 @@
+fruit1:Pomme
+fruit2:Banane
+fruit3:Orange
+legume1:Carotte
+legume2:Tomate
+legume3:Brocoli
+fruit4:Fraise
+fruit5:Raisin
+legume4:Courgette
+legume5:Poivron
