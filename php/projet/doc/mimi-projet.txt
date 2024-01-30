@@ -1,0 +1,15 @@
+Mini-projet 
+* cration_fiche.php : pour créer des fiches livres 
+    - Titre / Auteur / Editeur Année de parution / visuel de couverture 
+    - Valider les données transmises et format de fichier 
+    - Créer au moins 5 livres 
+
+* liste_fiche.php : pour lire la liste des ouvrages et les afficher dans un tableau de type <table> 
+
+* detail_fiche.php : lire des fiche ouvrages
+    - Visuel de couverture / Titre / Auteur Editeur / Année de paruption
+    - Retour à la liste des livres
+    - Modifier la fiche
+
+* Ajout d'un lien direct sur le titres et visuels des livres => <a href_fiche.php?titre="Les miséreux">Les miséreux</a>
+* urldecode($GET['titre]) =>

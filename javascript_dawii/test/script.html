@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="calendar" class="calendar-container"></div>
+</body>
+
+</html>
+<style>
+</style>
+<script>// Fonction pour afficher le mois actuel
+    // Sélectionne l'élément où le calendrier sera affiché
+    const calendarElement = document.getElementById('calendar');
+
+    // Obtiens la date actuelle
+    const currentDate = new Date();
+
+    // Récupère le mois et l'année actuels
+    const today = new Date();
+    const currentDay = today.getDate();
+    const currentMonth = today.getMonth();
+    const currentYear = today.getFullYear();
+    // Crée une fonction pour générer le calendrier
+    function generateCalendar(month, year) {
+        // Crée un nouvel objet Date pour le mois spécifié
+        const startDate = new Date(year, month, 1);
+        const endDate = new Date(year, month + 1, 0);
+
+        // Tableau des jours de la semaine
+        const daysOfWeek = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'];
+
+        // Crée le contenu HTML pour afficher le calendrier
+        let calendarHTML = `<h2>${startDate.toLocaleString('default', { month: 'long' })} ${year}</h2>`;
+        calendarHTML += '<table>';
+        calendarHTML += '<tr>';
+
+        // Affiche les jours de la semaine
+        for (let i = 0; i < 7; i++) {
+            calendarHTML += `<th>${daysOfWeek[i]}</th>`;
+        }
+
+        calendarHTML += '</tr><tr>';
+
+        // Remplit les cases du calendrier avec les jours du mois
+        for (let i = 0; i < startDate.getDay(); i++) {
+            calendarHTML += '<td></td>';
+        }
+
+        for (let i = 1; i <= endDate.getDate(); i++) {
+            calendarHTML += `<td>${i}</td>`;
+            if ((startDate.getDay() + i) % 7 === 0) {
+                calendarHTML += '</tr><tr>';
+            }
+        }
+
+        calendarHTML += '</tr>';
+        calendarHTML += '</table>';
+
+        // Insère le calendrier dans l'élément HTML
+        calendarElement.innerHTML = calendarHTML;
+
+        // Obtient la date d'aujourd'hui
+        const today = new Date();
+        const currentDay = today.getDate();
+
+        // Parcourt les cases du calendrier pour trouver la case correspondant à la date d'aujourd'hui
+        const calendarCells = calendarElement.getElementsByTagName('td');
+        for (let i = 0; i < calendarCells.length; i++) {
+            if (parseInt(calendarCells[i].textContent) === currentDay) {
+                calendarCells[i].style.color = '#00ADB5'; // Change la couleur de la date du jour
+                break;
+            }
+        }
+
+        // Affiche l'heure actuelle en haut à droite du calendrier
+        const currentTime = today.toLocaleTimeString('fr-FR', { hour: 'numeric', minute: 'numeric' });
+        const timeDisplay = document.createElement('div');
+        timeDisplay.textContent = currentTime;
+        timeDisplay.style.float = 'center';
+        timeDisplay.style.color = '#00ADB5';
+        calendarElement.insertAdjacentElement('beforebegin', timeDisplay);
+
+    }
+
+    // Appelle la fonction pour générer le calendrier du mois actuel
+    generateCalendar(currentMonth, currentYear);
+
+</script>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #222831;
+        color: #EEEEEE;
+    }
+
+    .calendar-container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #393E46;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+        text-align: center;
+        margin-top: 0;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #00ADB5;
+    }
+
+    td {
+        background-color: #222831;
+    }
+
+    td:hover {
+        background-color: #00ADB5;
+        color: #222831;
+        cursor: pointer;
+    }
+</style>
