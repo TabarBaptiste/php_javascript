@@ -42,6 +42,11 @@ class Book
      */
     private $reference;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $categorie;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +108,18 @@ class Book
     public function setReference(string $reference): self
     {
         $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?string
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(string $categorie): self
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }

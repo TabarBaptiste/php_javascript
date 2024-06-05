@@ -1,16 +1,24 @@
-{# templates/book/index.html.twig #}
 {% extends 'base.html.twig' %}
 
-{% block title %}Book List{% endblock %}
+{% block title %}Liste de livres
+{% endblock %}
 
 {% block body %}
-    <h1>Book List</h1>
+	<div class="container mt-5">
+		<h1>Liste de livres par autheur</h1>
 
-    <ul>
-        {% for book in books %}
-            <li>{{ book.title }} by {{ book.author }}</li>
-        {% endfor %}
-    </ul>
+		<ul class="list-group">
+			{% for book in books %}
+				<a href="{{ path('book_show', {'id': book.id}) }}">
+					<li class="list-group-item">
+						{{ book.titre }}
+						par
+						{{ book.auteur }}
+					</li>
+				</a>
+			{% endfor %}
+		</ul>
 
-    <a href="{{ path('book_new') }}">Add a new book</a>
+		<a href="{{ path('book_new') }}" class="btn btn-primary mt-3">Ajouter un nouveau livre</a>
+	</div>
 {% endblock %}
