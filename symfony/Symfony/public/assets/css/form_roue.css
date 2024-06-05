@@ -1,0 +1,17 @@
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    /* Marge en bas pour l'espacement */
+}
+
+div {
+    background-color: #f5f5f5;
+    /* Couleur de fond */
+    padding: 20px;
+    /* Espacement intérieur */
+    border-radius: 5px;
+    /* Bordure arrondie */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Ombre */
+}

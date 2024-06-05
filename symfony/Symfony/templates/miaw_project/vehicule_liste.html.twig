@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des véhicules
+{% endblock %}
+
+{% block body %}
+	<h1>Liste des véhicules</h1>
+
+	<table border="1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Modèle</th>
+				<th>Châssis</th>
+				<th>Moteur</th>
+				<th>Roues</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for vehicule in vehicules %}
+				<tr>
+					<td>{{ vehicule.id }}</td>
+					<td>{{ vehicule.model }}</td>
+					<td>
+						id:
+						{{ vehicule.chassis.id }}
+						<br>
+						Largeur:
+						{{ vehicule.chassis.largeur }}
+						cm
+						<br>
+						Longueur:
+						{{ vehicule.chassis.longueur }}
+						cm
+					</td>
+					<td>
+						{% if vehicule.moteur %}
+							id:
+							{{ vehicule.moteur.id }}
+							<br>
+							Énergie:
+							{{ vehicule.moteur.energie }}
+							<br>
+							Puissance:
+							{{ vehicule.moteur.puissance }}
+							ch
+						{% else %}
+							Aucun moteur
+						{% endif %}
+					</td>
+					<td>
+						{% if vehicule.roues is not empty %}
+							<ul>
+								{% for roue in vehicule.roues %}
+									<li>
+										id:
+										{{ roue.id }}
+										<br>
+										Diamètre:
+										{{ roue.diametre }}
+										cm
+									</li>
+								{% endfor %}
+							</ul>
+						{% else %}
+							Pas de roues
+						{% endif %}
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

@@ -1,0 +1,54 @@
+<html lang="fr">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+
+			var $container = $('#vehicule_form_roues');
+
+			var index = $container.find(':input').length;
+
+			if (index == 0) {
+				for (i = 0; i < 4; i ++) {
+					addRoue($container);
+				}
+			}
+
+			function addRoue($container) {
+					console.log($container);
+					var template = $container.attr('data-prototype').replace(/__name__label__/g, 'roue n° ' + (
+					index + 1
+				)).replace(/__name__/g, index);
+
+				var $prototype = $(template);
+
+				$container.append($prototype);
+
+				index++;
+			}
+});
+		</script>
+		<title>Formulaire Véhicule</title>
+	</head>
+
+	<body>
+		<div class="well">
+			{{ form(form) }}
+				{{ form_row(form.roues) }}
+			</div>
+		</body>
+	</body>
+</html>
+<style>
+	.well {
+		background-color: rgba(0, 0, 0, 0.1);
+		padding: 20px !important;
+		border-radius: 10px;
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+		width: 400px;
+		margin: 4 %auto 0 !important;
+	}
+</style>

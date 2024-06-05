@@ -1,0 +1,31 @@
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Liste des composants</title>
+    </head>
+    <body>
+        <h1>Liste des composants</h1>
+
+        {% if type == 'chassis' %}
+            <h2>Nouveau châssis créé</h2>
+            <p>Dimensions :
+                {{ chassis.longueur }}
+                x
+                {{ chassis.largeur }}</p>
+        {% elseif type == 'moteur' %}
+            <h2>Nouveau moteur créé</h2>
+            <ul>
+                <li>Énergie: {{ moteur.energie }}</li>
+                <li>Puissance: {{ moteur.puissance }}</li>
+            </ul>
+        {% elseif type == 'couleur' %}
+            <h2>Nouvelle couleur créée</h2>
+            <ul>
+                <li>Couleur: <span style="color: {{ couleur.couleur }}">{{ couleur.couleur }}</span></li>
+            </ul>
+        {% else %}
+            <p>Aucun composant n'est disponible.</p>
+        {% endif %}
+    </body>
+</html>
