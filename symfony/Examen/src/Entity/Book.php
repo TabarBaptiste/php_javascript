@@ -30,10 +30,10 @@ class Book
     /**
      * @ORM\Column(type="date")
      */
-    private $Datepublication;
+    private $datePublication;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
     private $summary;
 
@@ -71,14 +71,14 @@ class Book
         return $this;
     }
 
-    public function getDatepublication(): ?\DateTimeInterface
+    public function getDatePublication(): ?\DateTimeInterface
     {
-        return $this->Datepublication;
+        return $this->datePublication;
     }
 
-    public function setDatepublication(\DateTimeInterface $Datepublication): self
+    public function setDatePublication(\DateTimeInterface $datePublication): self
     {
-        $this->Datepublication = $Datepublication;
+        $this->datePublication = $datePublication;
 
         return $this;
     }
